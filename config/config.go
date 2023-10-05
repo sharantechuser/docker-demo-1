@@ -1,8 +1,10 @@
 package config
 
-import "os"
+import (
+	"os"
+)
 
-var user = getEnv("USER_NAME", "")
+var User = getEnv("USER_NAME", "")
 
 func getEnv(key, fallback string) string {
 	value, exist := os.LookupEnv(key)

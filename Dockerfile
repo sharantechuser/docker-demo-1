@@ -1,6 +1,9 @@
-FROM ubuntu
-RUN apt-get update
-RUN apt-get -y install apache2
-ADD . /var/www/html
-ENTRYPOINT apachectl -D FOREGROUND
-ENV name Sharan
+FROM golang:latest
+RUN mkdir /app
+ADD . /app
+# EXPOSE 4000
+WORKDIR /app
+RUN go build -o docker1 .
+CMD [ "/app/docker1" ]
+
+ENV USER_NAME Test
